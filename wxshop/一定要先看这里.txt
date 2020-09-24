@@ -1,0 +1,17 @@
+首先要有node环境---自行百度
+
+安装json-server
+
+npm i json-server -g 
+
+在WXSHOP目录下运行命令行  
+
+json-server --watch --port 53000 all.json  
+
+浏览器:http://localhost:53000/themes      
+
+PS:  themes指的的是all.json里面的key
+
+详细用法：
+
+https://www.cnblogs.com/fly_dragon/p/9186722.html
