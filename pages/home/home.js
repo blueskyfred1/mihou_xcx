@@ -1,8 +1,6 @@
 // pages/home/home.js
+import { banner, categories } from "../../data/data"
 import { Theme } from "../../model/theme"
-import { Banner } from "../../model/banner"
-import { Category } from "../../model/category"
-import { themes, banner, categories } from "../../data/data"
 Page({
 
   /**
@@ -10,6 +8,7 @@ Page({
    */
   data: {
     themeA:null,
+    themeE:null,
     bannerB:null,
     grid:[]
   },
@@ -23,16 +22,27 @@ Page({
   },
 
   async initAllData() {
-    // const themeA = await Theme.getHomeLocationA()
-    const themeA = themes
+    const theme = new Theme()
+    await theme.getThemes()
+    const themeA = await theme.getHomeLocationA()
     // const bannerB = await Banner.getHomeLocationB()
     const bannerB = banner
-    // const grid = await Category.getGridCategory()
+    // const grid = await Category.getHomeLocationC()
     const grid = categories
+    const themeE = await theme.getHomeLocationE()
+    let themeESpu = []
+    if(themeE.online) {
+      const data = await Theme.getHomeLocationESpu()
+      if(data) {
+        themeESpu = data.spu_list.slice(0,8)
+      }
+    }
     this.setData({
-      themeA: themeA[0],
+      themeA,
       bannerB,
       grid,
+      themeE,
+      themeESpu
     })
   },
 

@@ -1,0 +1,11 @@
+<view class="container">
+  <image class="title" src="{{theme.title_img}}"></image>
+  <scroll-view>
+    <block wx:for="{{spuList}}">
+      <view>
+        <image src="{{item.img}}"></image>
+        <text>{{item.title}}</text>
+      </view>
+    </block>
+  </scroll-view>
+</view>>

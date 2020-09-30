@@ -2,6 +2,7 @@
 .top-theme{
   width: 100%;
   height: 270rpx;
+  display: flex;
 }
 
 .swiper{

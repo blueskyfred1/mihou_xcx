@@ -8,4 +8,5 @@
     </block>
   </swiper>
   <s-category-grid grid="{{grid}}"></s-category-grid>
+  <s-spu-scroll wx:if="{{themeE.online}}" theme="{{themeE}}" spu-list="{{themeESpu}}"></s-spu-scroll>
 </view>
