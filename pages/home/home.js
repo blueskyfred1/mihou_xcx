@@ -21,15 +21,21 @@ Page({
     
   },
 
+  async initBottomSpuList() {
+    
+  },
   async initAllData() {
     const theme = new Theme()
     await theme.getThemes()
     const themeA = await theme.getHomeLocationA()
     // const bannerB = await Banner.getHomeLocationB()
-    const bannerB = banner
+    const bannerB = banner[0]
+    const bannerG = banner[1]
     // const grid = await Category.getHomeLocationC()
     const grid = categories
     const themeE = await theme.getHomeLocationE()
+    const themeF = await theme.getHomeLocationF()
+    const themeH = await theme.getHomeLocationH()
     let themeESpu = []
     if(themeE.online) {
       const data = await Theme.getHomeLocationESpu()
@@ -42,7 +48,10 @@ Page({
       bannerB,
       grid,
       themeE,
-      themeESpu
+      themeESpu,
+      themeF,
+      bannerG,
+      themeH
     })
   },
 

@@ -1,4 +1,50 @@
+.container{
+  padding: 42rpx 0 34rpx 28rpx;
+  background-color: #ffffff;
+}
+
 .title{
-  width: 692rpx;
+  width: 694rpx;
   height: 90rpx;
+}
+
+.price-unit{
+  font-size: 24rpx !important;
+}
+
+.price-value{
+  font-size: 26rpx !important;
+  font-weight: 800 !important;
+}
+
+.spu-img{
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.spu-container{
+  margin-right: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-view{
+  margin-top: 28rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.inner{
+  display: flex;
+  flex-direction: row;
+}
+
+.spu-text{
+  font-size: 20rpx;
+  color: #666666;
+  margin-top: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
