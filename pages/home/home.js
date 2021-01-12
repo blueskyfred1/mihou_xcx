@@ -1,6 +1,10 @@
 // pages/home/home.js
-import { banner, categories } from "../../data/data"
-import { Theme } from "../../model/theme"
+import {config} from "../../config/config"
+import { Theme } from "../../models/theme"
+import { Banner } from "../../models/banner"
+import { Category } from "../../models/category"
+import { Activity } from "../../models/activity"
+import { SpuPaging } from "../../models/spu-paging"
 Page({
 
   /**
@@ -8,33 +12,45 @@ Page({
    */
   data: {
     themeA:null,
-    themeE:null,
     bannerB:null,
-    grid:[]
+    grid:[],
+    activityD:null,
+    themeE:null,
+    themeESpu:[],
+    themeF: null,
+    bannerG: null,
+    themeH: null,
+    spuPaging:null,
+    loadingType: 'loading'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
+  async onLoad(options) {
     this.initAllData()
-    
+    this.initBottomSpuList()
   },
 
   async initBottomSpuList() {
-    
+    const paging = await SpuPaging.getLatestPaging()
+    this.data.spuPaging = paging
+    const data = await paging.getMoreData()
+    if (!data) {
+      return
+    }
+    wx.lin.renderWaterFlow(data.items)
   },
   async initAllData() {
     const theme = new Theme()
     await theme.getThemes()
     const themeA = await theme.getHomeLocationA()
-    // const bannerB = await Banner.getHomeLocationB()
-    const bannerB = banner[0]
-    const bannerG = banner[1]
-    // const grid = await Category.getHomeLocationC()
-    const grid = categories
+    const bannerB = await Banner.getHomeLocationB()
+    const grid = await Category.getHomeLocationC()
+    const activityD = await Activity.getHomeLocationD()
     const themeE = await theme.getHomeLocationE()
     const themeF = await theme.getHomeLocationF()
+    const bannerG = await Banner.getHomeLocationG()
     const themeH = await theme.getHomeLocationH()
     let themeESpu = []
     if(themeE.online) {
@@ -44,9 +60,10 @@ Page({
       }
     }
     this.setData({
-      themeA,
+      themeA: themeA,
       bannerB,
       grid,
+      activityD,
       themeE,
       themeESpu,
       themeF,
@@ -65,8 +82,17 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom: async function () {
+    const data = await this.data.spuPaging.getMoreData()
+    if (!data) {
+      return
+    }
+    wx.lin.renderWaterFlow(data.items)
+    if (!data.moreData) {
+      this.setData({
+        loadingType: 'end'
+      })
+    }
   },
 
   /**

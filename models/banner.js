@@ -5,13 +5,13 @@ class Banner {
   static locationG = 'b-2'
   static async getHomeLocationB() {
     return await Http.request({
-      url: `banner?name=${Banner.locationB}`
+      url: `banner/name/${Banner.locationB}`
     })
   }
 
-  static async getHomeLocationF() {
+  static async getHomeLocationG() {
     return await Http.request({
-      url: `banner?name=${Banner.locationF}`
+      url: `banner/name/${Banner.locationG}`
     })
   }
 }

@@ -1,2 +1,22 @@
 <!--components/spu-preview/index.wxml-->
-<text>components/spu-preview/index.wxml</text>
+<wxs src="../../wxs/price.wxs" module="p"></wxs>
+<view data-pid="{{data.id}}" bindtap="onItemTap" class="container">
+  <image bindload="onImgLoad" style="width:{{w}}rpx;height:{{h}}rpx" src="{{data.img}}"></image>
+  <view class="content-container">
+    <text class="title">{{data.title}}</text>
+    <view class="tags">
+      <block wx:for="{{tags}}" wx:key="index">
+        <l-tag type="reading" l-class="l-tag" size="super-mini">{{item}}</l-tag>
+      </block>
+    </view>
+    <view class="price-row">
+      <l-price color="#157658" value-size="28" unit-size="20" autofix
+      value="{{p.mainPrice(data.price,data.discount_price).price}}"></l-price>
+    <l-price wx:if="{{p.slashedPrice(data.price,data.discount_price).display}}" deleted color="#999999" size="26"
+    l-class="discount-price"
+      value="{{p.slashedPrice(data.price,data.discount_price).price}}"></l-price>
+    </view>
+   
+    <text class="subtitle">{{data.subtitle}}</text>
+  </view>
+</view>

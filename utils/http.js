@@ -6,7 +6,10 @@ class Http{
     const res =  await promisic(wx.request)({
       url:`${config.apiBaseUrl}${url}`,
       data,
-      method
+      method,
+      header:{
+        appkey: config.appKey
+      }
     })
     return res.data
   }
