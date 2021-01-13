@@ -1,3 +1,5 @@
+const { FenceGroup } = require("../models/fence-group")
+
 // components/realm/index.js
 Component({
   /**
@@ -12,6 +14,8 @@ Component({
       if (!spu) {
         return
       }
+      const fencesGroup = new FenceGroup(spu)
+      fencesGroup.initFences()
     }
   },
   /**
