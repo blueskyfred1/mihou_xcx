@@ -1,4 +1,5 @@
 const { FenceGroup } = require("../models/fence-group")
+const { Judger } = require("../models/judger")
 
 // components/realm/index.js
 Component({
@@ -14,8 +15,11 @@ Component({
       if (!spu) {
         return
       }
-      const fencesGroup = new FenceGroup(spu)
-      fencesGroup.initFences()
+      const fenceGroup = new FenceGroup(spu)
+      const judger = new Judger(fenceGroup)
+      fenceGroup.initFences()
+      this.bindInitData(fenceGroup)
+    
     }
   },
   /**
@@ -29,6 +33,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    bindInitData(fenceGroup) {
+      this.setData({
+        fences: fenceGroup.fences
+      })
+    }
   }
 })

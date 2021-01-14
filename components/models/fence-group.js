@@ -4,6 +4,7 @@ import { Matrix } from "./matrix"
 class FenceGroup {
   spu
   skuList = []
+  fences = []
   constructor(spu) {
     this.spu = spu
     this.skuList = spu.sku_list
@@ -27,7 +28,7 @@ class FenceGroup {
       fence.init();
       fences.push(fence)
     })
-    console.log(fences)
+    this.fences =  fences
   }
 
   _createMatrix(skuList) {
