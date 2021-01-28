@@ -16,8 +16,9 @@ Component({
         return
       }
       const fenceGroup = new FenceGroup(spu)
-      const judger = new Judger(fenceGroup)
       fenceGroup.initFences()
+      const judger = new Judger(fenceGroup)
+      this.data.judger = judger
       this.bindInitData(fenceGroup)
     
     }
@@ -26,7 +27,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    judger:Object
   },
 
   /**
@@ -37,6 +38,17 @@ Component({
       this.setData({
         fences: fenceGroup.fences
       })
+    },
+
+    onCellTap(event) {
+      const cell = event.detail.cell
+      const x = event.detail.x
+      const y = event.detail.y
+      const judger = this.data.judger
+      judger.judge(cell,x,y)
+      this.setData({
+        fences: judger.fenceGroup.fences
+      })
     }
-  }
+  } 
 })

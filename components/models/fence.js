@@ -15,7 +15,7 @@ class Fence {
     this._initCells()
   }
   _initCells() {
-    this.specs.forEach(s=>{
+    this.specs.forEach(s => {
       const existed = this.cells.some(c=>{
         return c.id === s.value_id
       })
