@@ -15,17 +15,37 @@ class Judger {
     
   }
 
+  isSkuIntact() {
+    return this.skuPending.isIntact()
+  }
+
+  getCurrentValues() {
+    return this.skuPending.getCurrentSpecValues()
+  }
+
+  getMissingKeys() {
+    const missingKeysIndex = this.skuPending.getMissingSpecKeysIndex()
+    return missingKeysIndex.map(i=>{
+      return this.fenceGroup.fences[i].title
+    })
+  }
+
   _initSkuPending() {
-    this.skuPending = new SkuPending()
+    const specsLength = this.fenceGroup.fences.length
+    this.skuPending = new SkuPending(specsLength)
     const defaultSku = this.fenceGroup.getDefaultSku()
     if (!defaultSku) {
       return
     }
     this.skuPending.init(defaultSku)
+    this._initSelectedCell()
+    this.judge(null, null, null, true)
+  }
+
+  _initSelectedCell() {
     this.skuPending.pending.forEach(cell => {
       this.fenceGroup.setCellStatusById(cell.id,CellStatus.SELECTED)
     })
-    this.judge(null, null, null, true)
   }
 
   _initPathDict() {
@@ -52,6 +72,12 @@ class Judger {
         this.fenceGroup.setCellStatusByXY(x,y,CellStatus.FORBIDDEN) 
       }
     })
+  }
+
+  getDeterminateSku() {
+    const code = this.skuPending.getSkuCode()
+    const sku = this.fenceGroup.getSku(code)
+    return sku
   }
 
   _isInDict(path) {
