@@ -1,3 +1,21 @@
  page {
    background-color: #f5f5f5;
  }
+
+ @font-face {
+  font-family: 'wldl';  /* project id 2369253 */
+  src: url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.eot');
+  src: url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.svg#wldl') format('svg');
+}
+
+.wldl {
+  font-family: wldl !important;
+  color: #157658 !important;
+}
+.l-icon-home:before {
+  content: "\e60d"
+}

@@ -1,0 +1,5 @@
+/* components/tab-bar/index.wxss */
+.wldl {
+  font-family: wldl !important;
+  color: #157658 !important;
+}

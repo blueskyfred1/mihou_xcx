@@ -1,0 +1,13 @@
+<!--components/tab-bar/index.wxml-->
+<view class="container">
+  <view class="icons">
+    <view bindtap="onGoToHome">
+      <l-icon name="home" l-class="wldl"></l-icon>
+    </view>
+    <view bindtap="onGoToCart">
+      <l-icon name="cart" size="40" color="#157658"></l-icon>
+    </view>
+  </view>
+  <view bindtap="onAddToCart" class="cart btn-font"></view>
+  <view bindtap="onBuy" class="buy btn-font"></view>
+</view>
