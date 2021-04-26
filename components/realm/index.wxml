@@ -20,7 +20,6 @@
           <text wx:else="{{skuIntact}}">已选：</text>
           <text wx:if="{{!skuIntact}}">{{missingKeys}}</text>
           <text wx:else="">{{currentValues}}</text>
-
         </view>
       </view>
     </view>

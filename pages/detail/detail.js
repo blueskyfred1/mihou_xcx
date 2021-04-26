@@ -1,5 +1,6 @@
 const { Spu } = require("../../models/spu")
 const { ShoppingWay } = require("../../core/enum")
+const { SaleExplain } = require("../../models/sale-explain")
 
 // pages/detail/detail.js
 Page({
@@ -17,8 +18,10 @@ Page({
   onLoad: async function (options) {
     const pid = options.pid
     const spu = await Spu.getDetail(pid)
+    const explain = await SaleExplain.getFixed()
     this.setData({
-      spu
+      spu,
+      explain
     })
   },
 
@@ -54,7 +57,11 @@ Page({
 
   },
 
-
+  onSpecChange(event) {
+    this.setData({
+      specs:event.detail
+    })
+  },
 
   /**
    * 用户点击右上角分享
