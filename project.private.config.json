@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -22,6 +23,12 @@
           "name": "无规格",
           "pathName": "pages/detail/detail",
           "query": "pid=11",
+          "scene": null
+        },
+        {
+          "name": "pages/category/category",
+          "pathName": "pages/category/category",
+          "query": "pid=2",
           "scene": null
         }
       ]
