@@ -56,9 +56,12 @@
     "l-icon": "/miniprogram_npm/lin-ui/icon/index",
     "s-spu-preview": "/components/spu-preview/index",
     "l-tag": "/miniprogram_npm/lin-ui/tag/index",
+    "l-segment": "/miniprogram_npm/lin-ui/segment/index",
+    "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index",
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
     "l-counter": "/miniprogram_npm/lin-ui/counter/index",
     "s-counter": "/components/counter/index",
+     
     "l-button": "/miniprogram_npm/lin-ui/button/index"
   }
 }

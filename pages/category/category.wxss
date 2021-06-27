@@ -24,3 +24,29 @@ page {
   font-weight: 400 !important;
   border-radius: 4rpx  !important;
 }
+
+.segment-item-active {
+  color: #157658 !important;
+  font-size: 26rpx !important;
+}
+
+.segment-item {
+  color: #666666 !important;
+  font-size: 26rpx !important;
+  background-color: #f3f3f3 !important;
+}
+
+.l-seg-line {
+  width: 8rpx !important;
+  height: 40rpx !important;
+  background-color: #157658 !important;
+  border-radius: 0 !important;
+}
+
+.main {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 2px solid #f3f3f3;
+}
