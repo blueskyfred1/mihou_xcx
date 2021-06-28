@@ -1,3 +1,4 @@
+import { px2rpx } from "../miniprogram_npm/lin-ui/utils/util"
 import { promisic } from "./util"
 
 const getSystemSize = async function() {
@@ -9,4 +10,12 @@ const getSystemSize = async function() {
     screenWidth: res.screenWidth,
   }
 }
-export { getSystemSize }
+
+const getWindowHeightRpx = async function() {
+  const res = await getSystemSize()
+  return px2rpx(res.windowHeight)
+}
+export {
+   getSystemSize,
+  getWindowHeightRpx
+}

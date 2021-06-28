@@ -1,3 +1,4 @@
+import {getWindowHeightRpx} from "../../utils/system"
 const { Spu } = require("../../models/spu")
 const { ShoppingWay } = require("../../core/enum")
 const { SaleExplain } = require("../../models/sale-explain")
@@ -19,9 +20,12 @@ Page({
     const pid = options.pid
     const spu = await Spu.getDetail(pid)
     const explain = await SaleExplain.getFixed()
+    const windowHeight = await getWindowHeightRpx()
+    const h = windowHeight - 100
     this.setData({
       spu,
-      explain
+      explain,
+      h
     })
   },
 
