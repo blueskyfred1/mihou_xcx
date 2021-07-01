@@ -33,7 +33,7 @@ page {
 .segment-item {
   color: #666666 !important;
   font-size: 26rpx !important;
-  background-color: #f3f3f3 !important;
+  background-color: white !important;
 }
 
 .l-seg-line {
