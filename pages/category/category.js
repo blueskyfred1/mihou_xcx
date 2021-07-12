@@ -1,6 +1,8 @@
-import { getSystemSize } from "../../utils/system"
-import {px2rpx} from "../../miniprogram_npm/lin-ui/utils/util"
+import { getSystemSize } from "../../utils/system";
+import {px2rpx} from "../../miniprogram_npm/lin-ui/utils/util";
 import { Categories } from "../../models/categories";
+import {SpuListType} from "../../core/enum";
+
 
 // pages/category/category.js
 Page({
@@ -48,6 +50,24 @@ Page({
     const h = windowHeightRpx - 60 - 20 - 2
     this.setData({
       segHeight: h
+    })
+  },
+
+  onSegChange(event) {
+   const rootId = event.detail.activeKey 
+   const currentSubs = this.data.categories.getSubs(rootId)
+   const currentRoot = this.data.categories.getRoot(rootId)
+   this.setData({
+     currentSubs,
+     currentBannerImg:currentRoot.img
+   })
+  },
+
+  onJumpToSpuList(event) {
+    const cid = event.detail.cid;
+    wx.navigateTo({
+      url: `/pages/spu-list/spu-list?cid=${cid}&type=${SpuListType.SUB_CATEGORY}`
+      ,
     })
   },
 
