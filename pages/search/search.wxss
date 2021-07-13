@@ -1,1 +1,49 @@
-/* pages/search/search.wxss */
+page {
+  background-color: white;
+}
+
+.input {
+  border-radius: 0 !important;
+}
+
+.header {
+  background-color: white;
+  border-bottom: 1px solid #f3f3f3;
+  padding-bottom: 14rpx;
+  position: fixed;
+  z-index: 77;
+  width: 750rpx;
+  top: 0;
+}
+
+.container {
+  padding-top: 70rpx;
+}
+
+.history-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.history-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 38rpx;
+}
+
+.slide {
+  width: 8rpx;
+  height: 46rpx;
+  background-color: #157658;
+  margin-right: 22rpx;
+}
+
+.icon {
+  margin-right: 30rpx;
+}
+
+.history-title > text {
+  font-size: 28rpx;
+  color: #333333;
+}
