@@ -9,20 +9,32 @@
 </view>
 <view class="container">
   <view>
-    <view class="history-container">
+    <view wx:if="{{historyTags.length != 0}}" class="history-container">
       <view class="history-title">
         <view class="slide"></view>
         <text>历史搜索</text>
         <view style="flex:1"></view>
-        <view class="icon">
+        <view bindtap="onDeleteHistory" class="icon">
           <l-icon name="delete" color="#999999" size="32"></l-icon>
         </view>
       </view>
       <view class="history-tags">
         <block wx:for="{{historyTags}}" wx:key="index">
-        <l-tag name="{{item}}"></l-tag>
+        <l-tag l-class="tag" name="{{item}}">{{item}}</l-tag>
         </block>
       </view>
     </view>
   </view>
+  <view class="history-container">
+    <view class="history-title">
+      <view class="slide"></view>
+        <text>热门搜索</text>
+        <view style="flex:1"></view>
+    </view>
+  </view>
+  <view class="history-tags">
+        <block wx:for="{{hotTags}}" wx:key="index">
+        <l-tag select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected" name="{{item.title}}">{{item.title}}</l-tag>
+        </block>
+      </view>
 </view>

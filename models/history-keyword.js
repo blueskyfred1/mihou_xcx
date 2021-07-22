@@ -4,7 +4,12 @@ class HistoryKeyword {
 
   keywords = []
   constructor() {
+    if (typeof HistoryKeyword.instance === 'object') {
+      return HistoryKeyword.instance
+    }
     this.keywords = this._getLocalKeywords()
+    HistoryKeyword.instance = this
+    return this
   }
   save(keyword) {
     const items  = this.keywords.filter(k=>{
@@ -41,4 +46,8 @@ class HistoryKeyword {
     }
     return keywords
   }
+}
+
+export {
+  HistoryKeyword
 }
