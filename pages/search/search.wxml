@@ -1,7 +1,7 @@
 <!--pages/search/search.wxml-->
 <view class="header">
   <l-search-bar placeholder="输入商品名称" maxlength="9" bg-color="#f1f1f1" l-class="input" bind:linconfirm="onSearch"
-  bind:lincancel="onCancel">
+    bind:lincancel="onCancel">
   </l-search-bar>
 </view>
 <view class="container">
@@ -29,16 +29,22 @@
       </view>
       <view class="history-tags">
         <block wx:for="{{hotTags}}" wx:key="index">
-          <l-tag bind:lintap="onSearch" select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected" name="{{item.title}}">
+          <l-tag bind:lintap="onSearch" select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected"
+            name="{{item.title}}">
             {{item.title}}</l-tag>
         </block>
       </view>
     </view>
   </view>
   <view wx:else>
-  <block wx:for="{{items}}">
-    <s-spu-preview-r data="{{item}}"></s-spu-preview-r>
-  </block>
+    <l-loadmore show end-text="- firecarl -" type="{{loadingType}}" loading-text="努力加载中...">
+      <view slot="content" hidden="{{!search}}" class="spu-bottom">
+        <block wx:for="{{items}}">
+          <s-spu-preview-r data="{{item}}"></s-spu-preview-r>
+        </block>
+      </view>
+    </l-loadmore>
+
   </view>
   <l-loading></l-loading>
 
