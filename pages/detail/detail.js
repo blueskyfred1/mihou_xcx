@@ -43,6 +43,14 @@ Page({
     })
   },
 
+  onShopping(event) {
+    const chosenSku = event.detail.sku
+    const skuCount = event.detail.skuCount
+    if (event.detail.orderWay == ShoppingWay.CART) {
+      
+    }
+  },
+
   onGotoHome(event) {
     wx.switchTab({
       url: '/pages/home/home',
