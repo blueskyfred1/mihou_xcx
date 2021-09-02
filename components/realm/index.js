@@ -134,15 +134,6 @@ Component({
       const spu = this.properties.spu
       return Spu.isNoSpec(spu)
     },
-<<<<<<< HEAD
-    onSelectCount(event) {
-      const currentCount = event.detail.count
-      this.data.currentSkuCount = currentCount
-      if (this.noSpe()) {
-        this.setStockStatus(this.getNoSpecSku().stock, currentCount)
-      } else {
-        if (this.data.judger.isSkuIntact) {
-=======
 
     onSelectCount(event) {
       const currentCount = event.detail.count
@@ -151,7 +142,6 @@ Component({
         this.setStockStatus(this.getNoSpecSku().stock, currentCount)
       }else {
         if(this.data.judger.isSkuIntact) {
->>>>>>> 946d9a15c283e868a8a586a0ba58b8fd26dd1c55
           const sku = this.data.judger.getDeterminateSku()
           this.setStockStatus(sku.stock, currentCount)
         }

@@ -44,15 +44,11 @@ Page({
   },
 
   onShopping(event) {
-<<<<<<< HEAD
     const chosenSku = event.detail.sku
     const skuCount = event.detail.skuCount
     if (event.detail.orderWay == ShoppingWay.CART) {
       
     }
-=======
-    console.log(event)
->>>>>>> 946d9a15c283e868a8a586a0ba58b8fd26dd1c55
   },
 
   onGotoHome(event) {
