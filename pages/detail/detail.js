@@ -1,3 +1,5 @@
+import { Cart } from "../../models/cart"
+import { CartItem } from "../../models/cart-item"
 import {getWindowHeightRpx} from "../../utils/system"
 const { Spu } = require("../../models/spu")
 const { ShoppingWay } = require("../../core/enum")
@@ -10,7 +12,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showRealm:false
+    showRealm:false,
+    cartItemCount: 0
   },
 
   /**
@@ -27,6 +30,7 @@ Page({
       explain,
       h
     })
+    this.updateCartItemCount()
   },
 
   onAddtoCart(event) {
@@ -47,8 +51,19 @@ Page({
     const chosenSku = event.detail.sku
     const skuCount = event.detail.skuCount
     if (event.detail.orderWay == ShoppingWay.CART) {
-      
+      const cart = new Cart();
+      const cartItem = new CartItem(chosenSku, skuCount);
+      cart.addItem(cartItem)
+      this.updateCartItemCount()
     }
+  },
+
+  updateCartItemCount() {
+    const cart = new Cart()
+    this.setData({
+      cartItemCount: cart.getCartItemCount(),
+      showRealm: false
+    })
   },
 
   onGotoHome(event) {

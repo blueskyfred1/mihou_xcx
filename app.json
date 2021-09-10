@@ -65,6 +65,7 @@
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
     "l-counter": "/miniprogram_npm/lin-ui/counter/index",
     "s-counter": "/components/counter/index",
-    "l-button": "/miniprogram_npm/lin-ui/button/index"
+    "l-button": "/miniprogram_npm/lin-ui/button/index",
+    "s-empty": "/components/empty/index"
   }
 }

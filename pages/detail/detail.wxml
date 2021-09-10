@@ -33,7 +33,7 @@
   <s-realm bind:shopping="onShopping" bind:specchange="onSpecChange" order-way="{{orderWay}}" spu="{{spu}}"></s-realm>
 </l-popup>
 
-<s-tabbar class="tabbar" bind:gotohome="onGoToHome" bind:gotocart="onGotoCart" bind:addtocart="onAddtoCart"
+<s-tabbar class="tabbar" cart-item-count="{{cartItemCount}}" bind:gotohome="onGoToHome" bind:gotocart="onGotoCart" bind:addtocart="onAddtoCart"
   bind:buy="onBuy">
 
 </s-tabbar>

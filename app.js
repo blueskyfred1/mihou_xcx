@@ -1,3 +1,5 @@
+const { Cart } = require("./models/cart")
+
 //app.js
 App({
   onLaunch: function () {
@@ -5,6 +7,13 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    const cart = new Cart()
+    if (!cart.isEmpty()) {
+      wx.showTabBarRedDot({
+        index: 2,
+      })
+    }
 
     // 登录
     wx.login({

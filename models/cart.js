@@ -2,7 +2,7 @@ class Cart {
   static SKU_MIN_COUNT = 1
   static SKU_MAX_COUNT = 77
   static CART_ITEM_MAX_COUNT = 77
-  static STORAGE_KEY = 'key'
+  static STORAGE_KEY = 'cart'
 
   _cartData = null
 
@@ -14,6 +14,18 @@ class Cart {
     return this
   }
 
+  getAllCartItemFromLocal() {
+    return this._getCartData()
+  }
+
+  isEmpty() {
+    const cartData = this._getCartData();
+    return cartData.items.length === 0
+  }
+
+  getCartItemCount() {
+    return this._getCartData().items.length
+  }
   addItem(newItem) {
     if (this.beyondMaxCartItemCount()) {
       throw new Error('超过购物车最大数量')
@@ -36,7 +48,7 @@ class Cart {
     })
   }
   _refreshStorage() {
-    wx.setStorageSync(STORAGE_KEY, this._cartData)
+    wx.setStorageSync(Cart.STORAGE_KEY, this._cartData)
   }
 
   _pushItem(newItem) {
@@ -52,9 +64,9 @@ class Cart {
 
   findEqualItem(skuId) {
     let oldItem = null
-    const items = this._getCartData.items
+    const items = this._getCartData().items
     for (let index = 0; index < items.length; index++) {
-      if (this._isEqualItem(items[i], skuId)) {
+      if (this._isEqualItem(items[index], skuId)) {
         oldItem = items[index]
         break
       }
@@ -93,7 +105,7 @@ class Cart {
     const cartData = {
       items:[]
     }
-    wx.setStorageSync(STORAGE_KEY, cartData)
+    wx.setStorageSync(Cart.STORAGE_KEY, cartData)
     return cartData
   }
 
