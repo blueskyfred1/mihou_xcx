@@ -1,2 +1,10 @@
-<!--components/cart-item/index.wxml-->
-<text>components/cart-item/index.wxml</text>
+<view slot="left" class="container">
+  <view class="checkbox">
+    <s-checkbox checked="{{cartItem.checked}}"></s-checkbox>
+  </view>
+  <view class="sku-container">
+    <view class="image-container"> 
+
+    </view>
+  </view>
+</view>

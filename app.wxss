@@ -3,19 +3,23 @@
  }
 
  @font-face {
-  font-family: 'wldl';  /* project id 2369253 */
-  src: url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.eot');
-  src: url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.woff') format('woff'),
-  url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_2369253_p8a89o6jl8.svg#wldl') format('svg');
+  font-family: 'wldl';  /* Project id 2369253 */
+  src: url('//at.alicdn.com/t/font_2369253_lqy5v61asme.woff2?t=1631331422938') format('woff2'),
+       url('//at.alicdn.com/t/font_2369253_lqy5v61asme.woff?t=1631331422938') format('woff'),
+       url('//at.alicdn.com/t/font_2369253_lqy5v61asme.ttf?t=1631331422938') format('truetype');
 }
+
+
 
 .wldl {
   font-family: wldl !important;
   color: #157658 !important;
 }
+
 .l-icon-home:before {
   content: "\e60d"
+}
+
+.l-icon-check::before {
+  content: '\e786';
 }
