@@ -20,6 +20,12 @@ Component({
     }
   },
 
+  observers: {
+    'count,min,max':function (count, min, max) {
+      console.log(count, min, max)
+    }
+  },
+
   /**
    * 组件的初始数据
    */
@@ -33,6 +39,7 @@ Component({
   methods: {
     onOverStep(event) {
       const minOrMaxOut = event.detail.type
+      console.log(event.detail)
       if (minOrMaxOut == 'overflow_max') {
         wx.showToast({
           title: '超出最大购买数量',
