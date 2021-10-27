@@ -1,3 +1,5 @@
+import { Sku } from "./sku"
+
 class Cart {
   static SKU_MIN_COUNT = 1
   static SKU_MAX_COUNT = 77
@@ -18,8 +20,101 @@ class Cart {
     return this._getCartData()
   }
 
+  async getAllCartItemFromServer() {
+    const cartData = this._getCartData()
+    if (cartData.items.length === 0) {
+      return null
+    }
+    const skuIds = this.getSkuIds()
+    const serverData = await Sku.getSkusByIds(skuIds)
+    this._refreshByServerData(serverData)
+    this._refreshStorage()
+    return this._getCartData()
+  }
+
+  _refreshByServerData(serverData) {
+    const cartData = this._getCartData()
+    cartData.items.forEach(item => {
+      this._setLatestCartItem(item, serverData)
+    })
+  }
+
+  _setLatestCartItem(item, serverData) {
+    let removed = true
+    for (const sku of serverData) {
+      if (sku.id === item.skuId) {
+        removed = false
+        item.sku = sku
+        break
+      }
+    }
+    if (removed) {
+      item.sku.online = false
+    }
+  }
+
+  getSkuIds() {
+    const cartData = this._getCartData()
+    if (cartData.items.length === 0) {
+      return []
+    }
+    return cartData.items.map(item => item.skuId)
+  }
+
+  replaceItemCount(skuId, newCount) {
+    const oldItem = this.findEqualItem(skuId)
+    if (!oldItem) {
+      return
+    }
+    if (newCount < 1) {
+      return
+    }
+    oldItem.count = newCount
+    if (oldItem.count >= Cart.SKU_MAX_COUNT) {
+      oldItem.count = Cart.SKU_MAX_COUNT
+    }
+    this._refreshStorage()
+  }
+
+  isAllChecked() {
+    let allChecked = true
+    const cartItems = this._getCartData().items
+    for (let item of cartItems) {
+      if (!item.checked) {
+        allChecked = false
+        break
+      }
+    }
+    return allChecked
+  }
+
+  checkAll(checked) {
+    const cartData = this._getCartData()
+    cartData.items.forEach(item => {
+      item.checked = checked
+    })
+    this._refreshStorage()
+  }
+
   static isSoldOut(item) {
     return item.sku.stock === 0
+  }
+
+  getCheckedItems() {
+    const cartItems = this._getCartData().items
+    const checkedCartItems = []
+    cartItems.forEach(item => {
+      if (item.checked) {
+        checkedCartItems.push(item)
+      }
+    })
+    return checkedCartItems
+  }
+
+  checkItem(skuId) {
+    const oldItem = this.findEqualItem(skuId)
+    oldItem.checked = !oldItem.checked
+    this._refreshStorage()
   }
 
   static isOnline(item) {

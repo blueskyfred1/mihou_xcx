@@ -6,7 +6,8 @@
     "pages/category/category",
     "pages/my/my",
     "pages/search/search",
-    "pages/spu-list/spu-list"
+    "pages/spu-list/spu-list",
+    "pages/order/order"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -61,9 +62,11 @@
     "s-spu-preview-r": "/components/spu-preview/index",
     "l-tag": "/miniprogram_npm/lin-ui/tag/index",
     "l-segment": "/miniprogram_npm/lin-ui/segment/index",
+    "l-slide-view": "/miniprogram_npm/lin-ui/slide-view/index",
     "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index",
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
     "l-counter": "/miniprogram_npm/lin-ui/counter/index",
+    "s-checkbox": "/components/checkbox/index",
     "s-counter": "/components/counter/index",
     "l-button": "/miniprogram_npm/lin-ui/button/index",
     "s-empty": "/components/empty/index"

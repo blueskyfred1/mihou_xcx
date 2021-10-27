@@ -3,7 +3,7 @@
 .container {
   box-sizing: border-box;
   width: 100%;
-  height: 220rpx;
+  height: 250rpx;
   display: flex;
   flex-direction: row;
   padding: 30rpx;

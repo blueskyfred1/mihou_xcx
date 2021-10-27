@@ -169,10 +169,8 @@ Component({
     onBuyOrCart(event) {
       if (Spu.isNoSpec(this.properties.spu)) {
         this.shoppingNoSpec()
-        console.log(111)
       }else {
         this.shoppingVarious()
-        console.log(222)
       }
     },
 

@@ -22,7 +22,6 @@ Component({
 
   observers: {
     'count,min,max':function (count, min, max) {
-      console.log(count, min, max)
     }
   },
 
@@ -39,7 +38,6 @@ Component({
   methods: {
     onOverStep(event) {
       const minOrMaxOut = event.detail.type
-      console.log(event.detail)
       if (minOrMaxOut == 'overflow_max') {
         wx.showToast({
           title: '超出最大购买数量',
