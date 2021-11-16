@@ -32,6 +32,20 @@ class Cart {
     return this._getCartData()
   }
 
+  getCheckedSkuIds() {
+    const cartData = this._getCartData()
+    if (cartData.items.length === 0) {
+      return []
+    }
+    const skuIds = []
+    cartData.items.forEach(item=>{
+      if (item.checked) {
+        skuIds.push(item.sku.id)
+      }
+    })
+    return skuIds
+  }
+
   _refreshByServerData(serverData) {
     const cartData = this._getCartData()
     cartData.items.forEach(item => {

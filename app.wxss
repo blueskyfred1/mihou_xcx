@@ -4,9 +4,9 @@
 
  @font-face {
   font-family: 'wldl';  /* Project id 2369253 */
-  src: url('//at.alicdn.com/t/font_2369253_lqy5v61asme.woff2?t=1631331422938') format('woff2'),
-       url('//at.alicdn.com/t/font_2369253_lqy5v61asme.woff?t=1631331422938') format('woff'),
-       url('//at.alicdn.com/t/font_2369253_lqy5v61asme.ttf?t=1631331422938') format('truetype');
+  src: url('//at.alicdn.com/t/font_2369253_5py5plgtriq.woff2?t=1635401195674') format('woff2'),
+       url('//at.alicdn.com/t/font_2369253_5py5plgtriq.woff?t=1635401195674') format('woff'),
+       url('//at.alicdn.com/t/font_2369253_5py5plgtriq.ttf?t=1635401195674') format('truetype');
 }
 
 
@@ -22,4 +22,8 @@
 
 .l-icon-check::before {
   content: '\e786';
+}
+
+.l-icon-address1::before {
+  content: '\e6a7';
 }

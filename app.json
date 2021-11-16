@@ -66,8 +66,11 @@
     "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index",
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
     "l-counter": "/miniprogram_npm/lin-ui/counter/index",
+    "l-dialog": "/miniprogram_npm/lin-ui/dialog/index",
     "s-checkbox": "/components/checkbox/index",
     "s-counter": "/components/counter/index",
+    "s-address": "/components/address/index",
+    "s-order-sku-item": "/components/order-sku-item/index",
     "l-button": "/miniprogram_npm/lin-ui/button/index",
     "s-empty": "/components/empty/index"
   }
