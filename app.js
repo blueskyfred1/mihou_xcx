@@ -14,6 +14,8 @@ App({
         index: 2,
       })
     }
+    const token = new Token()
+        token.verify()
 
     // 登录
     wx.login({

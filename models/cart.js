@@ -67,6 +67,15 @@ class Cart {
     }
   }
 
+  getSkuCountBySkuId(skuId) {
+    const cartData = this._getCartData()
+    const item = cartData.items.find(item => item.skuId === skuId)
+    if (!item) {
+        console.error('在订单里寻找CartItem时不应当出现找不到的情况')
+    }
+    return item.count
+}
+
   getSkuIds() {
     const cartData = this._getCartData()
     if (cartData.items.length === 0) {

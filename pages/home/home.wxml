@@ -9,7 +9,7 @@
       </block>
     </swiper>
     <s-category-grid grid="{{grid}}"></s-category-grid>
-    <image class="activity" src="{{activityD.entrance_img}}"></image>
+    <image data-aname="a-2" bindtap="onGoToCoupons" class="activity" src="{{activityD.entrance_img}}"></image>
     <s-spu-scroll l-class="spu-scroll" wx:if="{{themeE.online}}" theme="{{themeE}}" spu-list="{{themeESpu}}">
     </s-spu-scroll>
     <image class="quality" src="{{themeF.entrance_img}}"></image>

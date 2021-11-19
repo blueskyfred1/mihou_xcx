@@ -40,6 +40,12 @@
         {
           "name": "pages/cart/cart",
           "pathName": "pages/cart/cart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/home/home",
+          "pathName": "pages/home/home",
           "scene": null
         }
       ]
